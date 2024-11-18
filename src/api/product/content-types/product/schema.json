@@ -20,9 +20,8 @@
     },
     "description": {
       "type": "text",
-      "required": true,
-      "maxLength": 500,
-      "minLength": 10
+      "required": false,
+      "maxLength": 500
     },
     "image": {
       "type": "media",
@@ -40,8 +39,19 @@
     },
     "sku": {
       "type": "string",
-      "minLength": 3,
-      "maxLength": 30
+      "maxLength": 30,
+      "unique": true
+    },
+    "id_product": {
+      "type": "uid",
+      "required": true,
+      "targetField": "name"
+    },
+    "categorie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categorie.categorie",
+      "inversedBy": "products"
     }
   }
 }
